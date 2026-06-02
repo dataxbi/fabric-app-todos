@@ -1,0 +1,17 @@
+import { createContext } from 'react';
+
+import type { AuthUser } from '@/services/IAuthService';
+
+export interface AuthContextValue {
+  user: AuthUser | null;
+  loading: boolean;
+  error: string | null;
+  signIn: () => Promise<AuthUser>;
+  signOut: () => Promise<void>;
+  isAuthenticated: boolean;
+  fabricAuthEnabled: boolean;
+}
+
+export const AuthContext = createContext<AuthContextValue | undefined>(
+  undefined
+);
